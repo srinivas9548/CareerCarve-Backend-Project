@@ -31,6 +31,16 @@ const initializeDBAndServer = async () => {
 
 initializeDBAndServer();
 
+
+app.get('/', async (request, response) => {
+    try {
+        response.send('Welcome! This is CareerCarve Company Assignment backend domin. Please access any path to get the data.')
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).json({ error: 'Intenal Server Error' });
+    }
+});
+
 // GET API to retrieve all the mentors
 app.get("/mentors", async (request, response) => {
     try {
