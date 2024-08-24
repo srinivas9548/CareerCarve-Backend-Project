@@ -1,0 +1,115 @@
+### Get all mentors
+GET http://localhost:3000/mentors
+
+### Create a new mentor
+POST http://localhost:3000/mentors
+Content-Type: application/json
+
+{
+    "name": "Srinivas",
+    "availability": "Mon-Wed, 9 AM - 12 PM",
+    "areas_of_expertise": "HTML, CSS, Bootstrap",
+    "is_premium": 1
+}
+
+### Create another mentor
+POST http://localhost:3000/mentors
+Content-Type: application/json
+
+{
+    "name": "Ram",
+    "availability": "Mon-Thu, 4 PM - 6 PM",
+    "areas_of_expertise": "Bootstrap",
+    "is_premium": 0
+}
+
+### Get all students
+GET http://localhost:3000/students
+
+### Create a new student
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Hari Das",
+    "availability": "Mon-Fri, 3 PM - 6 PM",
+    "area_of_interest": "Bootstrap"
+}
+
+### Create another student
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Sanjay",
+    "availability": "Mon-Fri, 9 AM - 12 PM",
+    "area_of_interest": "React JS"
+}
+
+### Create a new booking
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+    "student_id": 4,
+    "mentor_id": 7,
+    "scheduled_time": "2024-08-29 4:00:00",
+    "area_of_interest": "Bootstrap",
+    "duration": 30
+}
+
+### Create a New Booking (Auto-Assign Mentor Based on Area of Interest)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "student_id": 1,
+  "mentor_id": 5,
+  "duration": 60,
+  "scheduled_time": "2024-08-24 15:00:00",
+  "area_of_interest": "CSS",
+  "is_premium": 0
+}
+
+###
+
+### Create a New Booking (With Specific Mentor)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "student_id": 5,
+  "mentor_id": 8,
+  "duration": 30,
+  "scheduled_time": "2024-08-28 18:30:00",
+  "area_of_interest": "Python",
+  "is_premium": 1
+}
+
+### Get all bookings for a specific student
+GET http://localhost:3000/bookings/student/1
+
+
+### Get all bookings for a specific mentor
+GET http://localhost:3000/bookings/mentor/1
+
+
+### Delete to cancel booking
+DELETE http://localhost:3000/bookings/31
+
+
+### Update a mentor's availability
+PUT http://localhost:3000/mentors/1
+Content-Type: application/json
+
+{
+  "availability": "Mon, Wed - 12 PM to 1 PM"
+}
+
+### Update a student's availability
+PUT http://localhost:3000/students/1
+Content-Type: application/json
+
+{
+  "availability": "Tue, Thu - 11 AM to 2 PM"
+}
